@@ -1,0 +1,53 @@
+[
+  {
+    "id": "/subscriptions/f2be7d4c-9595-4ca2-8e31-744d71638c5f/resourceGroups/imdb-fake-2_group/providers/Microsoft.Resources/deployments/Microsoft.Web-FunctionApp-Portal-a7f988ea-9b00/operations/C29A0EF537D5EE18",
+    "operationId": "C29A0EF537D5EE18",
+    "properties": {
+      "provisioningOperation": "Create",
+      "provisioningState": "Succeeded",
+      "timestamp": "2024-04-17T13:16:50.6451171Z",
+      "duration": "PT15.4523553S",
+      "trackingId": "4c1e35c8-a25d-4774-843a-c2585eb8d0ff",
+      "statusCode": "OK",
+      "targetResource": {
+        "id": "/subscriptions/f2be7d4c-9595-4ca2-8e31-744d71638c5f/resourceGroups/imdb-fake-2_group/providers/Microsoft.Web/serverfarms/ASP-imdbfake2group-9fb1",
+        "resourceType": "Microsoft.Web/serverfarms",
+        "resourceName": "ASP-imdbfake2group-9fb1"
+      }
+    }
+  },
+  {
+    "id": "/subscriptions/f2be7d4c-9595-4ca2-8e31-744d71638c5f/resourceGroups/imdb-fake-2_group/providers/Microsoft.Resources/deployments/Microsoft.Web-FunctionApp-Portal-a7f988ea-9b00/operations/FADD894041F7F2F8",
+    "operationId": "FADD894041F7F2F8",
+    "properties": {
+      "provisioningOperation": "Create",
+      "provisioningState": "Running",
+      "timestamp": "2024-04-17T13:16:49.816927Z",
+      "duration": "PT14.6241652S",
+      "trackingId": "86b56b43-28af-4589-9bde-05fed4301fe4",
+      "statusCode": "Accepted",
+      "targetResource": {
+        "id": "/subscriptions/f2be7d4c-9595-4ca2-8e31-744d71638c5f/resourceGroups/imdb-fake-2_group/providers/Microsoft.Storage/storageAccounts/imdbfake2groupb952",
+        "resourceType": "Microsoft.Storage/storageAccounts",
+        "resourceName": "imdbfake2groupb952"
+      }
+    }
+  },
+  {
+    "id": "/subscriptions/f2be7d4c-9595-4ca2-8e31-744d71638c5f/resourceGroups/imdb-fake-2_group/providers/Microsoft.Resources/deployments/Microsoft.Web-FunctionApp-Portal-a7f988ea-9b00/operations/696BEB7B2BFFEFDD",
+    "operationId": "696BEB7B2BFFEFDD",
+    "properties": {
+      "provisioningOperation": "Create",
+      "provisioningState": "Running",
+      "timestamp": "2024-04-17T13:16:36.6578841Z",
+      "duration": "PT1.4651223S",
+      "trackingId": "7d38f051-4530-420b-9f0f-ca609e31ab3b",
+      "statusCode": "Created",
+      "targetResource": {
+        "id": "/subscriptions/f2be7d4c-9595-4ca2-8e31-744d71638c5f/resourceGroups/DefaultResourceGroup-DEWC/providers/Microsoft.Resources/deployments/newWorkspaceTemplate",
+        "resourceType": "Microsoft.Resources/deployments",
+        "resourceName": "newWorkspaceTemplate"
+      }
+    }
+  }
+]

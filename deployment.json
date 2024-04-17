@@ -1,0 +1,331 @@
+{
+  "id": "/subscriptions/f2be7d4c-9595-4ca2-8e31-744d71638c5f/resourceGroups/imdb-fake-2_group/providers/Microsoft.Resources/deployments/Microsoft.Web-FunctionApp-Portal-a7f988ea-9b00",
+  "name": "Microsoft.Web-FunctionApp-Portal-a7f988ea-9b00",
+  "type": "Microsoft.Resources/deployments",
+  "tags": {
+    "primaryResourceId": "/subscriptions/f2be7d4c-9595-4ca2-8e31-744d71638c5f/resourcegroups/imdb-fake-2_group/providers/Microsoft.Web/sites/imdb-fake-2",
+    "marketplaceItemId": "Microsoft.FunctionApp",
+    "provisioningHash": "customize-post-provisioning-steps-functionapp-deployment"
+  },
+  "properties": {
+    "templateHash": "10769817655718597659",
+    "parameters": {
+      "subscriptionId": {
+        "type": "String",
+        "value": "f2be7d4c-9595-4ca2-8e31-744d71638c5f"
+      },
+      "name": {
+        "type": "String",
+        "value": "imdb-fake-2"
+      },
+      "location": {
+        "type": "String",
+        "value": "Germany West Central"
+      },
+      "use32BitWorkerProcess": {
+        "type": "Bool",
+        "value": false
+      },
+      "ftpsState": {
+        "type": "String",
+        "value": "FtpsOnly"
+      },
+      "storageAccountName": {
+        "type": "String",
+        "value": "imdbfake2groupb952"
+      },
+      "linuxFxVersion": {
+        "type": "String",
+        "value": "Node|20"
+      },
+      "sku": {
+        "type": "String",
+        "value": "Dynamic"
+      },
+      "skuCode": {
+        "type": "String",
+        "value": "Y1"
+      },
+      "workerSize": {
+        "type": "String",
+        "value": "0"
+      },
+      "workerSizeId": {
+        "type": "String",
+        "value": "0"
+      },
+      "numberOfWorkers": {
+        "type": "String",
+        "value": "1"
+      },
+      "repoUrl": {
+        "type": "String",
+        "value": "https://github.com/Mrgoblings/azure-imdb-fake"
+      },
+      "branch": {
+        "type": "String",
+        "value": "main"
+      },
+      "oidcUserIdentityName": {
+        "type": "String",
+        "value": "imdb-fake-2-id-b6c4"
+      },
+      "hostingPlanName": {
+        "type": "String",
+        "value": "ASP-imdbfake2group-9fb1"
+      },
+      "serverFarmResourceGroup": {
+        "type": "String",
+        "value": "imdb-fake-2_group"
+      },
+      "alwaysOn": {
+        "type": "Bool",
+        "value": false
+      }
+    },
+    "mode": "Incremental",
+    "debugSetting": {
+      "detailLevel": "None"
+    },
+    "provisioningState": "Running",
+    "timestamp": "2024-04-17T13:16:52.0919221Z",
+    "duration": "PT17.6174221S",
+    "correlationId": "3697a554-72fa-4218-bada-5f7e81f45e7a",
+    "providers": [
+      {
+        "namespace": "Microsoft.Web",
+        "resourceTypes": [
+          {
+            "resourceType": "sites",
+            "locations": [
+              "germanywestcentral"
+            ]
+          },
+          {
+            "resourceType": "sites/basicPublishingCredentialsPolicies",
+            "locations": [
+              null
+            ]
+          },
+          {
+            "resourceType": "sites/sourcecontrols",
+            "locations": [
+              null
+            ]
+          },
+          {
+            "resourceType": "serverfarms",
+            "locations": [
+              "germanywestcentral"
+            ]
+          }
+        ]
+      },
+      {
+        "namespace": "Microsoft.ManagedIdentity",
+        "resourceTypes": [
+          {
+            "resourceType": "userAssignedIdentities",
+            "locations": [
+              "germanywestcentral"
+            ]
+          },
+          {
+            "resourceType": "userAssignedIdentities/federatedIdentityCredentials",
+            "locations": [
+              null
+            ]
+          }
+        ]
+      },
+      {
+        "namespace": "Microsoft.Authorization",
+        "resourceTypes": [
+          {
+            "resourceType": "roleAssignments",
+            "locations": [
+              null
+            ]
+          }
+        ]
+      },
+      {
+        "namespace": "microsoft.insights",
+        "resourceTypes": [
+          {
+            "resourceType": "components",
+            "locations": [
+              "germanywestcentral"
+            ]
+          }
+        ]
+      },
+      {
+        "namespace": "Microsoft.Storage",
+        "resourceTypes": [
+          {
+            "resourceType": "storageAccounts",
+            "locations": [
+              "germanywestcentral"
+            ]
+          }
+        ]
+      },
+      {
+        "namespace": "Microsoft.Resources",
+        "resourceTypes": [
+          {
+            "resourceType": "deployments",
+            "locations": [
+              null
+            ]
+          }
+        ]
+      }
+    ],
+    "dependencies": [
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/f2be7d4c-9595-4ca2-8e31-744d71638c5f/resourceGroups/imdb-fake-2_group/providers/microsoft.insights/components/imdb-fake-2",
+            "resourceType": "microsoft.insights/components",
+            "resourceName": "imdb-fake-2"
+          },
+          {
+            "id": "/subscriptions/f2be7d4c-9595-4ca2-8e31-744d71638c5f/resourceGroups/imdb-fake-2_group/providers/Microsoft.Web/serverfarms/ASP-imdbfake2group-9fb1",
+            "resourceType": "Microsoft.Web/serverfarms",
+            "resourceName": "ASP-imdbfake2group-9fb1"
+          },
+          {
+            "id": "/subscriptions/f2be7d4c-9595-4ca2-8e31-744d71638c5f/resourceGroups/imdb-fake-2_group/providers/Microsoft.Storage/storageAccounts/imdbfake2groupb952",
+            "resourceType": "Microsoft.Storage/storageAccounts",
+            "resourceName": "imdbfake2groupb952"
+          },
+          {
+            "id": "/subscriptions/f2be7d4c-9595-4ca2-8e31-744d71638c5f/resourceGroups/imdb-fake-2_group/providers/microsoft.insights/components/imdb-fake-2",
+            "resourceType": "microsoft.insights/components",
+            "resourceName": "imdb-fake-2",
+            "apiVersion": "2015-05-01"
+          },
+          {
+            "id": "/subscriptions/f2be7d4c-9595-4ca2-8e31-744d71638c5f/resourceGroups/imdb-fake-2_group/providers/Microsoft.Storage/storageAccounts/imdbfake2groupb952",
+            "resourceType": "Microsoft.Storage/storageAccounts",
+            "resourceName": "imdbfake2groupb952",
+            "actionName": "listKeys",
+            "apiVersion": "2019-06-01"
+          }
+        ],
+        "id": "/subscriptions/f2be7d4c-9595-4ca2-8e31-744d71638c5f/resourceGroups/imdb-fake-2_group/providers/Microsoft.Web/sites/imdb-fake-2",
+        "resourceType": "Microsoft.Web/sites",
+        "resourceName": "imdb-fake-2"
+      },
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/f2be7d4c-9595-4ca2-8e31-744d71638c5f/resourceGroups/imdb-fake-2_group/providers/Microsoft.Web/Sites/imdb-fake-2",
+            "resourceType": "Microsoft.Web/Sites",
+            "resourceName": "imdb-fake-2"
+          }
+        ],
+        "id": "/subscriptions/f2be7d4c-9595-4ca2-8e31-744d71638c5f/resourceGroups/imdb-fake-2_group/providers/Microsoft.Web/sites/imdb-fake-2/basicPublishingCredentialsPolicies/scm",
+        "resourceType": "Microsoft.Web/sites/basicPublishingCredentialsPolicies",
+        "resourceName": "imdb-fake-2/scm"
+      },
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/f2be7d4c-9595-4ca2-8e31-744d71638c5f/resourceGroups/imdb-fake-2_group/providers/Microsoft.Web/Sites/imdb-fake-2",
+            "resourceType": "Microsoft.Web/Sites",
+            "resourceName": "imdb-fake-2"
+          }
+        ],
+        "id": "/subscriptions/f2be7d4c-9595-4ca2-8e31-744d71638c5f/resourceGroups/imdb-fake-2_group/providers/Microsoft.Web/sites/imdb-fake-2/basicPublishingCredentialsPolicies/ftp",
+        "resourceType": "Microsoft.Web/sites/basicPublishingCredentialsPolicies",
+        "resourceName": "imdb-fake-2/ftp"
+      },
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/f2be7d4c-9595-4ca2-8e31-744d71638c5f/resourceGroups/imdb-fake-2_group/providers/Microsoft.Web/Sites/imdb-fake-2",
+            "resourceType": "Microsoft.Web/Sites",
+            "resourceName": "imdb-fake-2"
+          },
+          {
+            "id": "/subscriptions/f2be7d4c-9595-4ca2-8e31-744d71638c5f/resourceGroups/imdb-fake-2_group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/imdb-fake-2-id-b6c4",
+            "resourceType": "Microsoft.ManagedIdentity/userAssignedIdentities",
+            "resourceName": "imdb-fake-2-id-b6c4"
+          },
+          {
+            "id": "/subscriptions/f2be7d4c-9595-4ca2-8e31-744d71638c5f/resourceGroups/imdb-fake-2_group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/imdb-fake-2-id-b6c4",
+            "resourceType": "Microsoft.ManagedIdentity/userAssignedIdentities",
+            "resourceName": "imdb-fake-2-id-b6c4",
+            "apiVersion": "2018-11-30"
+          }
+        ],
+        "id": "/subscriptions/f2be7d4c-9595-4ca2-8e31-744d71638c5f/resourceGroups/imdb-fake-2_group/providers/Microsoft.Web/sites/imdb-fake-2/sourcecontrols/web",
+        "resourceType": "Microsoft.Web/sites/sourcecontrols",
+        "resourceName": "imdb-fake-2/web"
+      },
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/f2be7d4c-9595-4ca2-8e31-744d71638c5f/resourceGroups/imdb-fake-2_group/providers/Microsoft.Web/Sites/imdb-fake-2",
+            "resourceType": "Microsoft.Web/Sites",
+            "resourceName": "imdb-fake-2"
+          }
+        ],
+        "id": "/subscriptions/f2be7d4c-9595-4ca2-8e31-744d71638c5f/resourceGroups/imdb-fake-2_group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/imdb-fake-2-id-b6c4",
+        "resourceType": "Microsoft.ManagedIdentity/userAssignedIdentities",
+        "resourceName": "imdb-fake-2-id-b6c4"
+      },
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/f2be7d4c-9595-4ca2-8e31-744d71638c5f/resourceGroups/imdb-fake-2_group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/imdb-fake-2-id-b6c4",
+            "resourceType": "Microsoft.ManagedIdentity/userAssignedIdentities",
+            "resourceName": "imdb-fake-2-id-b6c4"
+          }
+        ],
+        "id": "/subscriptions/f2be7d4c-9595-4ca2-8e31-744d71638c5f/resourceGroups/imdb-fake-2_group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/imdb-fake-2-id-b6c4/federatedIdentityCredentials/wgmdfns3alwrw",
+        "resourceType": "Microsoft.ManagedIdentity/userAssignedIdentities/federatedIdentityCredentials",
+        "resourceName": "imdb-fake-2-id-b6c4/wgmdfns3alwrw"
+      },
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/f2be7d4c-9595-4ca2-8e31-744d71638c5f/resourceGroups/imdb-fake-2_group/providers/Microsoft.Web/Sites/imdb-fake-2",
+            "resourceType": "Microsoft.Web/Sites",
+            "resourceName": "imdb-fake-2"
+          },
+          {
+            "id": "/subscriptions/f2be7d4c-9595-4ca2-8e31-744d71638c5f/resourceGroups/imdb-fake-2_group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/imdb-fake-2-id-b6c4",
+            "resourceType": "Microsoft.ManagedIdentity/userAssignedIdentities",
+            "resourceName": "imdb-fake-2-id-b6c4"
+          },
+          {
+            "id": "/subscriptions/f2be7d4c-9595-4ca2-8e31-744d71638c5f/resourceGroups/imdb-fake-2_group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/imdb-fake-2-id-b6c4",
+            "resourceType": "Microsoft.ManagedIdentity/userAssignedIdentities",
+            "resourceName": "imdb-fake-2-id-b6c4",
+            "apiVersion": "2018-11-30"
+          }
+        ],
+        "id": "/subscriptions/f2be7d4c-9595-4ca2-8e31-744d71638c5f/resourceGroups/imdb-fake-2_group/providers/Microsoft.web/sites/imdb-fake-2/providers/Microsoft.Authorization/roleAssignments/bad3353a-d2a5-5a77-9d8a-19e28e8d2dcb",
+        "resourceType": "Microsoft.Authorization/roleAssignments",
+        "resourceName": "bad3353a-d2a5-5a77-9d8a-19e28e8d2dcb"
+      },
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/f2be7d4c-9595-4ca2-8e31-744d71638c5f/resourceGroups/DefaultResourceGroup-DEWC/providers/Microsoft.Resources/deployments/newWorkspaceTemplate",
+            "resourceType": "Microsoft.Resources/deployments",
+            "resourceName": "newWorkspaceTemplate"
+          }
+        ],
+        "id": "/subscriptions/f2be7d4c-9595-4ca2-8e31-744d71638c5f/resourceGroups/imdb-fake-2_group/providers/microsoft.insights/components/imdb-fake-2",
+        "resourceType": "microsoft.insights/components",
+        "resourceName": "imdb-fake-2"
+      }
+    ],
+    "validationLevel": "Template"
+  }
+}
