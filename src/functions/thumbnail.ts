@@ -25,7 +25,7 @@ async function getThumbnail(request: HttpRequest): Promise<HttpResponseInit> {
         const movie = await prisma.movie.findUnique({ where: { id: movieId }, select: { thumbnailUrl: true } });
         return { body: JSON.stringify(movie?.thumbnailUrl) };
     } catch (error) {
-        return { status: 500, body: "Internal Server Error" };
+        return { status: 500, body: "Internal Server Error 28" + error.message };
     }
 }
 
@@ -38,7 +38,7 @@ async function updateThumbnail(request: HttpRequest): Promise<HttpResponseInit> 
         const movie = await prisma.movie.update({ where: { id: movieId }, data: { thumbnailUrl } });
         return { body: JSON.stringify(movie.thumbnailUrl) };
     } catch (error) {
-        return { status: 500, body: "Internal Server Error" };
+        return { status: 500, body: "Internal Server Error 41" + error.message };
     }
 }
 
@@ -50,7 +50,7 @@ async function deleteThumbnail(request: HttpRequest): Promise<HttpResponseInit> 
         const movie = await prisma.movie.update({ where: { id: movieId }, data: { thumbnailUrl: null } });
         return { status: 204 };
     } catch (error) {
-        return { status: 500, body: "Internal Server Error" };
+        return { status: 500, body: "Internal Server Error 53" + error.message };
     }
 }
 
