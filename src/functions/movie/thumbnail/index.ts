@@ -20,6 +20,8 @@ export async function thumbnail(request: HttpRequest, context: InvocationContext
 async function getThumbnail(request: HttpRequest): Promise<HttpResponseInit> {
     try {
         const movieId = parseInt(request.query.get("id") || "");
+        if(!movieId) return { status: 400, body: 'Movie ID is required' };
+
         const movie = await prisma.movie.findUnique({ where: { id: movieId }, select: { thumbnailUrl: true } });
         return { body: JSON.stringify(movie?.thumbnailUrl) };
     } catch (error) {
@@ -30,6 +32,8 @@ async function getThumbnail(request: HttpRequest): Promise<HttpResponseInit> {
 async function updateThumbnail(request: HttpRequest): Promise<HttpResponseInit> {
     try {
         const movieId = parseInt(request.query.get("id") || "");
+        if(!movieId) return { status: 400, body: 'Movie ID is required' };
+
         const thumbnailUrl: string = await Joi.string().uri().validateAsync(request.body);
         const movie = await prisma.movie.update({ where: { id: movieId }, data: { thumbnailUrl } });
         return { body: JSON.stringify(movie.thumbnailUrl) };
@@ -41,6 +45,8 @@ async function updateThumbnail(request: HttpRequest): Promise<HttpResponseInit> 
 async function deleteThumbnail(request: HttpRequest): Promise<HttpResponseInit> {
     try {
         const movieId = parseInt(request.query.get("id") || "");
+        if(!movieId) return { status: 400, body: 'Movie ID is required' };
+
         const movie = await prisma.movie.update({ where: { id: movieId }, data: { thumbnailUrl: null } });
         return { status: 204 };
     } catch (error) {
