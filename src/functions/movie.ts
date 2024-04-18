@@ -26,7 +26,7 @@ async function getMovies(): Promise<HttpResponseInit> {
         const movies = await prisma.movie.findMany();
         return { body: JSON.stringify(movies) };
     } catch (error) {
-        return { status: 500, body: "Internal Server Error" };
+        return { status: 500, body: "Internal Server Error: " + error.message };
     }
 }
 async function createMovie(request: HttpRequest): Promise<HttpResponseInit> {
@@ -43,7 +43,7 @@ async function createMovie(request: HttpRequest): Promise<HttpResponseInit> {
         const movie = await prisma.movie.create( {data: movieData} );
         return { body: JSON.stringify(movie) };
     } catch (error) {
-        return { status: 500, body: "Internal Server Error" };
+        return { status: 500, body: "Internal Server Error: " + error.message };
     }
 }
 
@@ -54,7 +54,7 @@ async function updateMovie(request: HttpRequest): Promise<HttpResponseInit> {
         const movie = await prisma.movie.update({ where: { id: movieId }, data: movieData });
         return { body: JSON.stringify(movie) };
     } catch (error) {
-        return { status: 500, body: "Internal Server Error" };
+        return { status: 500, body: "Internal Server Error: " + error.message };
     }
 }
 
@@ -64,7 +64,7 @@ async function deleteMovie(request: HttpRequest): Promise<HttpResponseInit> {
         await prisma.movie.delete({ where: { id: movieId } });
         return { status: 204 };
     } catch (error) {
-        return { status: 500, body: "Internal Server Error" };
+        return { status: 500, body: "Internal Server Error: " + error.message };
     }
 }
 
