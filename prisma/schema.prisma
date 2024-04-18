@@ -9,6 +9,33 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlserver"
   url      = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
+
+
+model Movie {
+  id           Int      @id @default(autoincrement())
+  title        String
+  year         Int
+  genre        String
+  description  String
+  director     String
+  actors       String
+  thumbnailUrl String?
+  ratings      Rating[]
+}
+
+model Rating {
+  id        Int      @id @default(autoincrement())
+  movieId   Int
+  title     String
+  opinion   String
+  rating    Int
+  date      DateTime
+  author    String
+  Movie     Movie    @relation(fields: [movieId], references: [id])
+}
+
+
