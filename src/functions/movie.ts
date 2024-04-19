@@ -42,7 +42,6 @@ async function createMovie(request: HttpRequest): Promise<HttpResponseInit> {
             description: Joi.string().required(),
             director: Joi.string().required(),
             actors: Joi.string().required(),
-            dummy: Joi.string().optional(),
             thumbnailUrl: Joi.string().uri().optional(),
             // Add validation for other properties
         }).validateAsync(requestBody);
