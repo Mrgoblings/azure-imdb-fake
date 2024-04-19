@@ -23,7 +23,7 @@ export async function movie(request: HttpRequest, context: InvocationContext): P
 
 async function getMovies(): Promise<HttpResponseInit> {
     try {
-        const movies = await prisma.movie.findMany();
+        const movies = await prisma.movie.findFirst();
         return { body: JSON.stringify(movies) };
     } catch (error) {
         return { status: 500, body: "Internal Server Error: " + error.message };
@@ -31,17 +31,20 @@ async function getMovies(): Promise<HttpResponseInit> {
 }
 async function createMovie(request: HttpRequest): Promise<HttpResponseInit> {
     try {
-        return { status: 69, body: request.body };
-        const movieData: Prisma.MovieUncheckedCreateInput = await Joi.object({
+        // return { body: JSON.stringify(request.body.title) };
+        const requestBody = await readableToString(request.body as ReadableStream<any>);
+        // return { body: `aaa - ${JSON.stringify(requestBody)}` };
+
+        const validationResult: Prisma.MovieUncheckedCreateInput = await Joi.object({
             title: Joi.string().required(),
             year: Joi.number().integer().required(),
             genre: Joi.string().required(),
             description: Joi.string().required(),
-            thumbnailUrl: Joi.string().uri(),
+            thumbnailUrl: Joi.string().uri().optional(),
             // Add validation for other properties
-        }).validateAsync(request.body);
+        }).validateAsync(requestBody);
 
-        const movie = await prisma.movie.create( {data: movieData} );
+        const movie = await prisma.movie.create({ data: requestBody });
         return { body: JSON.stringify(movie) };
     } catch (error) {
         return { status: 500, body: "Internal Server Error: " + error.message };
@@ -75,3 +78,14 @@ app.http('movie', {
     handler: movie
 });
 
+
+async function readableToString(readable: ReadableStream<any>) {
+    const reader = await readable.getReader();
+    let result = '';
+    while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        result += new TextDecoder("utf-8").decode(value);
+    }
+    return JSON.parse(result);
+}
