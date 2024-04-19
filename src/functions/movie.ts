@@ -31,6 +31,7 @@ async function getMovies(): Promise<HttpResponseInit> {
 }
 async function createMovie(request: HttpRequest): Promise<HttpResponseInit> {
     try {
+        return { status: 69, body: request.body };
         const movieData: Prisma.MovieUncheckedCreateInput = await Joi.object({
             title: Joi.string().required(),
             year: Joi.number().integer().required(),
