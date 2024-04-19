@@ -1,5 +1,5 @@
 import { app, HttpRequest, HttpResponseInit, InvocationContext } from "@azure/functions";
-import { PrismaClient } from "@prisma/client";
+import { Prisma, PrismaClient } from "@prisma/client";
 import * as Joi from 'joi';
 
 const prisma = new PrismaClient();
@@ -25,19 +25,23 @@ async function getRatings(): Promise<HttpResponseInit> {
 }
 
 async function createRating(request: HttpRequest): Promise<HttpResponseInit> {
-    const schema = Joi.object({
-        movieId: Joi.number().required(),
-        rating: Joi.number().min(1).max(5).required(),
-    });
+    try {
+        const requestBody = await readableToString(request.body as ReadableStream<any>);
 
-    const { error, value } = schema.validate(request.body);
+        const validationResult: Prisma.RatingUncheckedCreateInput = await Joi.object({
+            movieId: Joi.number().required(),
+            rating: Joi.number().min(1).max(5).required(),
+            title: Joi.string().required(),
+            opinion: Joi.string().required(),
+            date: Joi.date().required(),
+            author: Joi.string().required(),
+        }).validateAsync(requestBody);
 
-    if (error) {
-        return { status: 400, body: error.details[0].message };
+        const rating = await prisma.rating.create({ data: requestBody });
+        return { body: JSON.stringify(rating) };
+    } catch (error) {
+        return { status: 500, body: "Internal Server Error: " + error.message };
     }
-
-    const newRating = await prisma.rating.create({ data: value });
-    return { status: 201, body: JSON.stringify(newRating) };
 }
 
 async function updateRating(request: HttpRequest): Promise<HttpResponseInit> {
@@ -77,3 +81,14 @@ app.http('rating', {
     authLevel: 'anonymous',
     handler: rating
 });
+
+async function readableToString(readable: ReadableStream<any>) {
+    const reader = await readable.getReader();
+    let result = '';
+    while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        result += new TextDecoder("utf-8").decode(value);
+    }
+    return JSON.parse(result);
+}

@@ -31,9 +31,7 @@ async function getMovies(): Promise<HttpResponseInit> {
 }
 async function createMovie(request: HttpRequest): Promise<HttpResponseInit> {
     try {
-        // return { body: JSON.stringify(request.body.title) };
         const requestBody = await readableToString(request.body as ReadableStream<any>);
-        // return { body: `aaa - ${JSON.stringify(requestBody)}` };
 
         const validationResult: Prisma.MovieUncheckedCreateInput = await Joi.object({
             title: Joi.string().required(),
