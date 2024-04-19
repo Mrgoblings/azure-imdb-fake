@@ -27,7 +27,7 @@ async function getMovies(request: HttpRequest): Promise<HttpResponseInit> {
         let movies;
         if (id) {
             movies = await prisma.movie.findUnique({ where: { id } });
-            return { body: JSON.stringify(movie) };
+            return { body: JSON.stringify(movies) };
         } else {
             movies = await prisma.movie.findMany({ take: 100 });
             return { body: JSON.stringify(movies) };
