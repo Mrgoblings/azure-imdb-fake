@@ -27,7 +27,7 @@ async function getRatings(): Promise<HttpResponseInit> {
 async function createRating(request: HttpRequest): Promise<HttpResponseInit> {
     try {
         const requestBody = await readableToString(request.body as ReadableStream<any>);
-
+        
         const validationResult: Prisma.RatingUncheckedCreateInput = await Joi.object({
             movieId: Joi.number().required(),
             rating: Joi.number().min(1).max(5).required(),
