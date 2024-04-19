@@ -9,7 +9,7 @@ export async function movie(request: HttpRequest, context: InvocationContext): P
 
     switch (request.method) {
         case "GET":
-            return getMovies();
+            return getMovies(request);
         case "POST":
             return createMovie(request);
         case "PUT":
@@ -21,10 +21,17 @@ export async function movie(request: HttpRequest, context: InvocationContext): P
     }
 }
 
-async function getMovies(): Promise<HttpResponseInit> {
+async function getMovies(request: HttpRequest): Promise<HttpResponseInit> {
     try {
-        const movies = await prisma.movie.findFirst();
-        return { body: JSON.stringify(movies) };
+        const id = parseInt(request.query.get("id") || "");
+        let movies;
+        if (id) {
+            movies = await prisma.movie.findUnique({ where: { id } });
+            return { body: JSON.stringify(movie) };
+        } else {
+            movies = await prisma.movie.findMany({ take: 100 });
+            return { body: JSON.stringify(movies) };
+        }
     } catch (error) {
         return { status: 501, body: "Internal Server Error: " + error.message };
     }
