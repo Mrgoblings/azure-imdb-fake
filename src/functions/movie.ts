@@ -26,7 +26,7 @@ async function getMovies(): Promise<HttpResponseInit> {
         const movies = await prisma.movie.findFirst();
         return { body: JSON.stringify(movies) };
     } catch (error) {
-        return { status: 500, body: "Internal Server Error: " + error.message };
+        return { status: 501, body: "Internal Server Error: " + error.message };
     }
 }
 async function createMovie(request: HttpRequest): Promise<HttpResponseInit> {
